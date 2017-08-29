@@ -18,4 +18,25 @@ Payment A:	Customer memilih metode pembayaran transfer
 Payment B:	Customer melihat ke nomor rekening kasir dan diharuskan membayar 1x24 jam setelah melihat payment page.
 		Ada tombol refund.
 Done:		Customer melihat receipt jika transfer sudah terjadi.
-Refund:		Jika sudah membayar dalam 1x24 jam setelah melihat payment page, customer bisa refund. 
+Refund:		Jika sudah membayar dalam 1x24 jam setelah melihat payment page, customer bisa refund.
+--------WRONG--------
+Cashier	:	Login
+		Melihat Reservation List
+		Melihat Available Rooms
+		Reserve (Input data pelanggan)
+		Accepting Check IN
+		Cancel Reservation
+		Mencetak receipt (Total transaction count)
+		Accept Payment
+		Accepting CheSck OUT
+		Melihat History of Reservations (This Week, This Month, This Year)
+		Melihat Room Type terlaris
+		Melihat pelanggan tersetia
+
+Admin	:	Admin Login
+		Implementasi CRUD Database
+		Melihat Reservation List
+		Melihat Available Rooms
+		Melihat History of Reservations (This Week, This Month, This Year)
+		Melihat Room Type terlaris
+		Melihat pelanggan tersetia
