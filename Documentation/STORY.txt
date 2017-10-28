@@ -1,0 +1,42 @@
+Main page: 	customer akan melihat carousel/slider foto2 dari jenis2 kamar hotel(TOWER,VIP POOLVIEW,VVIP POOLVIEW), 
+		Menu Login/register, dan BOOK NOW!
+Login page: 	customer diharuskan login menggunakan email-pass atau register jika belum punya akun.
+Reg page:	customer mengisi data nama, jenis kelamin, no.HP, email,pass.
+Menu BOOK NOW!: customer memilih jenis hotel(ada 3: TOWER,VIP POOLVIEW,VVIP POOLVIEW), jumlah orang, tanggal inap, dan durasi inap. 
+		Disitu customer juga bisa melihat availibility room. setelah memilih, customer akan diarahkan ke Confirmation
+		page.
+Confirmation:	Customer mengisi formulir> 	1. Nama Penginap sesuai KTP
+						2. No.HP Penginap
+						3. E-mail Penginap
+						4. Special Order
+		Jika sudah selesai, customer bisa melihat total fee, dan bisa klik tombol CONTINUE ORDER
+Review Page:	Customer melihat jenis kamar yang dipesan, tanggal check in dan check out, durasi inap, dan nama penginap
+		dan Total fee. Customer diharuskan mencentang kalimat "Data yang saya isikan sudah benar"
+Payment A:	Customer memilih metode pembayaran transfer
+		Dan ada textbox untuk mengisi voucher code untuk diskon. Customer bisa melihat total fee setelah diskon
+		(jika ada). By clicking continue, you agree to our terms and conditions.
+Payment B:	Customer melihat ke nomor rekening kasir dan diharuskan membayar 1x24 jam setelah melihat payment page.
+		Ada tombol refund.
+Done:		Customer melihat receipt jika transfer sudah terjadi.
+Refund:		Jika sudah membayar dalam 1x24 jam setelah melihat payment page, customer bisa refund.
+--------WRONG--------
+Cashier	:	Login
+		Melihat Reservation List
+		Melihat Available Rooms
+		Reserve (Input data pelanggan)
+		Accepting Check IN
+		Cancel Reservation
+		Mencetak receipt (Total transaction count)
+		Accept Payment
+		Accepting CheSck OUT
+		Melihat History of Reservations (This Week, This Month, This Year)
+		Melihat Room Type terlaris
+		Melihat pelanggan tersetia
+
+Admin	:	Admin Login
+		Implementasi CRUD Database
+		Melihat Reservation List
+		Melihat Available Rooms
+		Melihat History of Reservations (This Week, This Month, This Year)
+		Melihat Room Type terlaris
+		Melihat pelanggan tersetia
