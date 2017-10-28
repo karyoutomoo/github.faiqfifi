@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+  
+<html>
+<head>
+      <title>Spring Boot - POST-GET AJAX Example</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      
+      <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+      
+      <link href="/klorofil_template/css/bootstrap.min.css" rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+      
+      <link rel="stylesheet" href="/klorofil_template/css/vendor/icon-sets.css" media="all" />
+      
+      <link rel="stylesheet" href="/klorofil_template/css/main.min.css" />
+      
+      <link rel="stylesheet" href="/klorofil_template/css/demo.css" />
+      
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
+      <link rel="stylesheet" href="/klorofil_template/css/google.css" />
+      <link rel="apple-touch-icon" sizes="76x76" href="/klorofil_template/img/apple-icon.png" />
+      <link rel="icon" type="image/png" sizes="96x96" href="/klorofil_template/img/favicon.png" />
+      <link rel="stylesheet" href="/klorofil_template/plugins/datepicker-bootstrap/css/bootstrap-datepicker.min.css" />
+      <link rel="stylesheet" href="/datatables/dataTables.bootstrap.css" />
+        <link rel="stylesheet" href="/datatables/responsiveDatatable/responsive.dataTables.min.css" />
+        
+	
+<style type="text/css">
+	.dataTables_filter, .dataTables_length { 
+                display: none; 
+            }
+</style>
+</head>
+<body onload="tampilkanwaktu();setInterval('tampilkanwaktu()', 1000);">
+<div id="wrapper">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="brand">
+                <img src="/klorofil_template/img/logo.png" alt="Klorofil Logo" class="img-responsive logo" />
+            </div>
+            <div class="sidebar-scroll">
+                <nav>
+                    <ul class="nav">
+                        <li><a href=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                        <!-- <li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li> -->
+                        <li><a href=""><i class="lnr lnr-chart-bars"></i> <span>Data Pasien</span></a></li>
+                        <li>
+                            <a href="#subPages" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>Data Antrian</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                            <div id="subPages" class="collapse ">
+                                <ul class="nav">
+                                    <li><a href=""><span>Loket Pendaftaran</span></a></li>
+                                    <li><a href="" class="">Poli</a></li>
+                                    <!-- <li><a href="<?=base_url('toast')?>" class="">Toast</a></li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href=""><i class="lnr lnr-cog"></i> <span class="title">Data Admin</span></a></li>
+                        <li><a href=""><i class="lnr lnr-cog"></i> <span class="title">Rekam Medis</span></a></li>
+                        <li><a href=""><i class="lnr lnr-cog"></i> <span class="title">Informasi Puskemas</span></a></li>
+                        <li><a href=""><i class="lnr lnr-cog"></i> <span class="title">Pengaturan</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    
+<div class="main">
+<nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-btn">
+                        <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
+                        <span style="font-size:20px">
+                            <?php 
+                                $hari = getDay(date('l'));
+                                $tgl = getDat();
+                                $bulan = getMonth(date('F'));
+                                $tahun = getYear(); 
+                                echo $hari.', '.$tgl.' '.$bulan.' '.$tahun;
+                            ?>
+                            <!-- <i class="fa fa-angle-double-right"></i> -->
+                            |
+                        </span>
+                        <span id="clock" style="font-size:20px"></span> 
+                    </div>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <i class="fa fa-bars icon-nav"></i>
+                        </button>
+                    </div>
+                    <div id="navbar-menu" class="navbar-collapse collapse">
+                        <div class="nav navbar-nav navbar-left">
+                            
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
+                                    <i class="lnr lnr-alarm"></i>
+                                    <span class="badge bg-danger">5</span>
+                                </a>
+                                <ul class="dropdown-menu notifications">
+                                    <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
+                                    <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
+                                    <li><a href="#" class="more">See all notifications</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Basic Use</a></li>
+                                    <li><a href="#">Working With Data</a></li>
+                                    <li><a href="#">Security</a></li>
+                                    <li><a href="#">Troubleshooting</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/klorofil_template/img/user.png')?>" class="img-circle" alt="Avatar" /> <span><?php ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="lnr lnr-user"></i> <span>Profil Saya</span></a></li>
+                                    <li><a href="#"><i class="lnr lnr-cog"></i> <span>Ubah Password</span></a></li>
+                                    <li><a href=""><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+	 
+           
+<!-- MAIN -->
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <div class="container-fluid">
+        <h3 class="page-title">Data Admin</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- RECENT PURCHASES -->
+                <div class="panel">
+                    <div class="navbar-collapse collapse">
+                        <form class="navbar-form navbar-left">
+                            <div class="input-group">
+                                <input id="filter" type="text" class="form-control" placeholder="Cari Admin..." />
+                                <span class="input-group-btn"><button type="button" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button></span>
+                            </div>
+                            <button type="button" class="btn btn-success" id="btn-add"><i class="fa fa-plus"></i> Tambah Admin</button>
+                        </form>
+                        <form class="navbar-form navbar-right">
+                            <div class="panel-heading">
+                                <div class="right">
+                                    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <table id="datatable" class="table table-striped" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Admin</th>
+                                    <th>Username</th>
+                                    <th>Hak akses</th>
+                                    <th>Last login</th>
+                                    <th>Pilihan</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="info"></div>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <div id="pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END RECENT PURCHASES -->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!-- END MAIN CONTENT -->
+</body>
+</html>
