@@ -1,4 +1,4 @@
-package com.example.blibli;
+package com.example.blibli.model.response.base;
 
 public class BaseResponse {
 

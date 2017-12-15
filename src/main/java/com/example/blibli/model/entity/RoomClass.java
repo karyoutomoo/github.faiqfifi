@@ -1,4 +1,4 @@
-package com.example.blibli.model;
+package com.example.blibli.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
