@@ -1,12 +1,21 @@
 package com.example.blibli.model.request;
 
+import com.example.blibli.model.response.base.PageMetaData;
+
 import java.util.Date;
 
 public class EmployeeRequest {
 	private String id;
 	private String name;
 	private Date hireDate;
+	private PageMetaData pageMetaData;
 	
+	public PageMetaData getPageMetaData() {
+		return pageMetaData;
+	}
+	public void setPageMetaData(PageMetaData pageMetaData) {
+		this.pageMetaData = pageMetaData;
+	}
 	public String getName() {
 		return name;
 	}
