@@ -22,8 +22,8 @@ import org.springframework.stereotype.Service;
 	@Override
 	public List<EmployeeResponse> findAll() {
 		// TODO Auto-generated method stub
-		
-		return null;
+		List<Employee> employees = this.employeeRepository.findAll();
+		return this.modelConverterService.convertToEmployeeListResponse(employees);
 	}
 
 	@Override
