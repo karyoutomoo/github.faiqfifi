@@ -8,6 +8,7 @@ import com.example.blibli.service.api.ModelConverterService;
 import com.example.blibli.service.api.EmployeeService;
 
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,27 +28,45 @@ import org.springframework.stereotype.Service;
 	}
 
 	@Override
-	public List<EmployeeResponse> findByFirstName(String firstName) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<EmployeeResponse> findByName(String name) {
+		List<Employee> employees = this.employeeRepository.findByName(name);
+		return this.modelConverterService.convertToEmployeeListResponse(employees);
 	}
 
 	@Override
 	public EmployeeResponse saveEmployee(EmployeeRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		Employee employee = new Employee();
+		employee.setName(request.getName());
+		employee.setHireDate(request.getHireDate());
+		return this.modelConverterService.convertToEmployeeResponse(this.employeeRepository.save(employee));
 	}
 
 	@Override
-	public EmployeeResponse EmployeeStudent(EmployeeRequest request) throws Exception {
+	public EmployeeResponse updateEmployee(EmployeeRequest request) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		Employee employee = this.employeeRepository.findById(request.getId());
+		if (employee == null)
+		{
+			throw new Exception(this.EMPLOYEE_NOT_FOUND);
+		}
+		else {
+			employee.setName(request.getName());
+			employee.setHireDate(request.getHireDate());
+			return this.modelConverterService.convertToEmployeeResponse(this.employeeRepository.save(employee));
+		}
 	}
 
 	@Override
 	public void deleteEmployee(String id) throws Exception {
 		// TODO Auto-generated method stub
-		
+		Employee employee = this.employeeRepository.findById(id);
+		if (employee == null)
+		{
+			throw new Exception(this.EMPLOYEE_NOT_FOUND);
+		}
+		else {
+			this.employeeRepository.delete(employee);
+		}
 	}
-
 }

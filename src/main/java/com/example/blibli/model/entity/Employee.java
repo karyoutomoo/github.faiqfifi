@@ -1,6 +1,6 @@
 package com.example.blibli.model.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +20,39 @@ public class Employee {
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     private String id;
     
-    @Column(name="name", nullable=false)
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getHireDate() {
+		return hireDate;
+	}
+
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Column(name="name", nullable=false)
     private String name;
 
     @Column(name="hiredate", nullable=false)

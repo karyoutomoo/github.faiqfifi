@@ -22,4 +22,21 @@ public class LoginRecord {
     
     @Column(name="login_time", nullable=false)
     private Time loginTime;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Time getLoginTime() {
+		return loginTime;
+	}
+
+	public void setLoginTime(Time loginTime) {
+		this.loginTime = loginTime;
+	}
+    
 }

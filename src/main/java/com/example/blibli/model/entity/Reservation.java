@@ -27,7 +27,63 @@ public class Reservation {
     @Column(name="id_employee", nullable=false)
     private String idEmployee;
 
-    @Column(name="id_guest", nullable=false)
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getIdRoom() {
+		return idRoom;
+	}
+
+	public void setIdRoom(String idRoom) {
+		this.idRoom = idRoom;
+	}
+
+	public String getIdEmployee() {
+		return idEmployee;
+	}
+
+	public void setIdEmployee(String idEmployee) {
+		this.idEmployee = idEmployee;
+	}
+
+	public String getIdGuest() {
+		return idGuest;
+	}
+
+	public void setIdGuest(String idGuest) {
+		this.idGuest = idGuest;
+	}
+
+	public Date getCheckIn() {
+		return checkIn;
+	}
+
+	public void setCheckIn(Date checkIn) {
+		this.checkIn = checkIn;
+	}
+
+	public Date getCheckOut() {
+		return checkOut;
+	}
+
+	public void setCheckOut(Date checkOut) {
+		this.checkOut = checkOut;
+	}
+
+	public Integer getNumGuest() {
+		return numGuest;
+	}
+
+	public void setNumGuest(Integer numGuest) {
+		this.numGuest = numGuest;
+	}
+
+	@Column(name="id_guest", nullable=false)
     private String idGuest;
 
     @Column(name="check_in", nullable=false)

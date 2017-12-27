@@ -24,7 +24,47 @@ public class Room {
     @Column(name="name", nullable=false)
     private String name;
 
-    @Column(name="capacity", nullable=false)
+    public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getIdClass() {
+		return idClass;
+	}
+
+	public void setIdClass(String idClass) {
+		this.idClass = idClass;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(Integer capacity) {
+		this.capacity = capacity;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Column(name="capacity", nullable=false)
     private Integer capacity;
 
     @Column(name="status", nullable=false)

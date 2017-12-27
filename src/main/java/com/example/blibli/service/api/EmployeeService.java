@@ -7,11 +7,11 @@ import java.util.List;
 public interface EmployeeService {
 
 	List<EmployeeResponse> findAll();
-	List<EmployeeResponse> findByFirstName(String firstName);
+	List<EmployeeResponse> findByName(String name);
 
 	EmployeeResponse saveEmployee(EmployeeRequest request) throws Exception;
 
-	EmployeeResponse EmployeeStudent(EmployeeRequest request)
+	EmployeeResponse updateEmployee(EmployeeRequest request)
         throws Exception;
 
     void deleteEmployee(String id) throws Exception;
