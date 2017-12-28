@@ -1,76 +1,19 @@
-<!DOCTYPE HTML>
-  
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
 <head>
-      <title>Spring Boot - POST-GET AJAX Example</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      
-      <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-      
-      <link href="/klorofil_template/css/bootstrap.min.css" rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
-      
-      <link rel="stylesheet" href="/klorofil_template/css/vendor/icon-sets.css" media="all" />
-      
-      <link rel="stylesheet" href="/klorofil_template/css/main.min.css" />
-      
-      <link rel="stylesheet" href="/klorofil_template/css/demo.css" />
-      
-      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet" />
-      <link rel="stylesheet" href="/klorofil_template/css/google.css" />
-      <link rel="apple-touch-icon" sizes="76x76" href="/klorofil_template/img/apple-icon.png" />
-      <link rel="icon" type="image/png" sizes="96x96" href="/klorofil_template/img/favicon.png" />
-      <link rel="stylesheet" href="/klorofil_template/plugins/datepicker-bootstrap/css/bootstrap-datepicker.min.css" />
-      <link rel="stylesheet" href="/datatables/dataTables.bootstrap.css" />
-        <link rel="stylesheet" href="/datatables/responsiveDatatable/responsive.dataTables.min.css" />
-        
-	
-<style type="text/css">
-
-</style>
+	<meta charset=UTF-8"/> 
+	<title>Login</title>
 </head>
 <body>
-<div id="wrapper">
-    <div class="vertical-align-wrap">
-        <div class="vertical-align-middle">
-            <div class="auth-box ">
-                <div class="left">
-                    <div class="content" style="margin-top:60px;">
-                    <div class="logo text-center"><img src="http://localhost/puskesmas_taman/assets/Klorofil_template/img/logo-dark.png" alt="Klorofil Logo" /></div>
-                        <div class="logo text-center"></div>
-                        <form class="form-auth-small" method="post">
-                            <div class="form-group">
-                                <label for="signup-email" class="control-label sr-only">Username</label>
-                                <input type="text" class="form-control" name="username" placeholder="Username"></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-password" class="control-label sr-only">Password</label>
-                                <input type="password" class="form-control" name="password" placeholder="Password"></input>
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-password" class="control-label sr-only">Password</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg btn-block btn-toastr btn-login" data-context="success" data-message="This is success info" data-position="top-right">LOGIN</button>
-                            <div class="form-group" style="margin-top:20px;">
-                                
-                                <label id="login-error" style="color:red; font-weight: normal;"><?php echo $error ?></label>
-                            </div>
-                        </form>
-                    </div>   
-                </div>
-                <div class="right">
-                    <div class="overlay"></div>
-                    <div class="content text">
-                        <h1 class="heading">Selamat Datang Administrator</h1>
-                        <p>HOTEL LALA</p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <script src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+	<h1 style="text-align:center">Login</h1>
+	<form>
+		<div align=center>
+	<label for="username">Username : </label>     
+	<input id="username" type="text" name="username" placeholder="Username" /> </br>  
+	<label for="password">Password : </label>     
+	<input id="password" type="password" name="password" placeholder="Password"/> </br>   
+	<button type="submit">SUBMIT</button> </br>
+	</div>
+	</form> 
 </body>
 </html>

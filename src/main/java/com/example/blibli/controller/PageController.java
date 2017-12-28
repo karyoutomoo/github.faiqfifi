@@ -1,4 +1,4 @@
-package com.example.blibli;
+package com.example.blibli.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
