@@ -54,7 +54,7 @@ public class ReservationServiceImpl implements ReservationService{
 
 	@Override
 	public List<ReservationResponse> findByName(String name) {
-		List<Guest> reservations = this.reservationRepository.findByName(name);
+		List<Reservation> reservations = this.reservationRepository.findByName(name);
 		return this.modelConverterService.convertToReservationListResponse(reservations);
 	}
 	
@@ -67,7 +67,6 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public ReservationResponse saveReservation(ReservationRequest request) throws Exception {
 		Reservation reservation = new Reservation();
-		//employee.setName(request.getName());
 		reservation.setCheckIn(request.getCheck_in());
 		reservation.setCheckOut(request.getCheck_out());
 		reservation.setNumGuest(request.getNum_guest());
