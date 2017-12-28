@@ -23,7 +23,7 @@ public class Employee {
 	@Column(name="name", nullable=false)
     private String name;
 
-    @Column(name="hiredate", columnDefinition = "DATE", nullable=false)
+    @Column(name="hiredate", nullable=false)
     private Date hireDate;
 
     @Column(name="status", nullable=false)

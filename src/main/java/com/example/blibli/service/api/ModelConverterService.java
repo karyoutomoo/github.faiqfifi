@@ -16,4 +16,6 @@ public interface ModelConverterService {
     ReservationResponse convertToReservationResponse(Reservation reservation);
     
 	List<ReservationResponse> convertToReservationListResponse(List<Reservation> reservations);
+	
+	ReservationResponse convertToReservationListResponse(Reservation reservations);
 }

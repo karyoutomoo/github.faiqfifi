@@ -9,7 +9,7 @@ public interface ReservationService {
 	
 	List<ReservationResponse> findAll();
 	RestListResponse<ReservationResponse> findPageable(ReservationRequest request);
-	List<ReservationResponse> findbyId(String id);
+	ReservationResponse findbyId(String id);
 	
 	ReservationResponse saveReservation(ReservationRequest request) throws Exception;
 	

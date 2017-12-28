@@ -3,17 +3,8 @@ package com.example.blibli.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-import com.example.blibli.model.entity.Employee;
-import com.example.blibli.model.entity.Guest;
 import com.example.blibli.model.entity.Reservation;
 import com.example.blibli.model.request.ReservationRequest;
-import com.example.blibli.model.response.EmployeeResponse;
 import com.example.blibli.model.response.ReservationResponse;
 import com.example.blibli.model.response.base.PageMetaData;
 import com.example.blibli.model.response.base.RestListResponse;
@@ -23,9 +14,9 @@ import com.example.blibli.service.api.ReservationService;
 import com.example.blibli.repository.GuestRepository;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class ReservationServiceImpl implements ReservationService{
+
 	private static final String RESERVATION_NOT_FOUND = "RESERVATION NOT FOUND";
 	
 	@Autowired private ReservationRepository reservationRepository;
@@ -34,7 +25,6 @@ public class ReservationServiceImpl implements ReservationService{
 	
 	@Override
 	public List<ReservationResponse> findAll() {
-		// TODO Auto-generated method stub
 		List<Reservation> reservations = this.reservationRepository.findAll();
 		return this.modelConverterService.convertToReservationListResponse(reservations);
 	}
@@ -53,36 +43,60 @@ public class ReservationServiceImpl implements ReservationService{
 	}
 
 	@Override
-	public List<ReservationResponse> findByName(String name) {
-		List<Reservation> reservations = this.reservationRepository.findByName(name);
-		return this.modelConverterService.convertToReservationListResponse(reservations);
-	}
-	
-	@Override
-	public List<ReservationResponse> findbyId(String id) {
-		List<Reservation> reservations = this.reservationRepository.findById(id);
+	public ReservationResponse findbyId(String id) {
+		Reservation reservations = this.reservationRepository.findById(id);
 		return this.modelConverterService.convertToReservationListResponse(reservations);
 	}
 
 	@Override
 	public ReservationResponse saveReservation(ReservationRequest request) throws Exception {
+		/*Employee employee = new Employee();
+		employee.setName(request.getName());
+		employee.setHireDate(request.getHireDate());
+		return this.modelConverterService.convertToEmployeeResponse(this.employeeRepository.save(employee));*/
 		Reservation reservation = new Reservation();
 		reservation.setCheckIn(request.getCheck_in());
 		reservation.setCheckOut(request.getCheck_out());
 		reservation.setNumGuest(request.getNum_guest());
-		return this.modelConverterService.convertToReservationResponse(this.reservationRepository.save(reservation));
+		return this.modelConverterService.convertToReservationListResponse(reservation);
 	}
 
 	@Override
 	public ReservationResponse updateReservation(ReservationRequest request) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		/*Employee employee = this.employeeRepository.findById(request.getId());
+		if (employee == null)
+		{
+			throw new Exception(EmployeeServiceImpl.EMPLOYEE_NOT_FOUND);
+		}
+		else {
+			employee.setName(request.getName());
+			employee.setHireDate(request.getHireDate());*/
+		Reservation reservation = this.reservationRepository.findById(request.getId());
+		if(reservation == null)
+		{
+			throw new Exception(ReservationServiceImpl.RESERVATION_NOT_FOUND);
+		}
+		else {
+			reservation.setCheckIn(request.getCheck_in());
+			reservation.setCheckOut(request.getCheck_out());
+			reservation.setNumGuest(request.getNum_guest());
+		}
+			return this.modelConverterService.convertToReservationResponse(this.reservationRepository.save(reservation));
 	}
 
 	@Override
 	public void deleteReservation(String id) throws Exception {
-		// TODO Auto-generated method stub
+		
+		Reservation reservation = this.reservationRepository.findById(id);
+		if (reservation== null)
+			throw new Exception(ReservationServiceImpl.RESERVATION_NOT_FOUND);
+		else this.reservationRepository.delete(reservation);
 		
 	}
-	
+
+	@Override
+	public List<ReservationResponse> findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
