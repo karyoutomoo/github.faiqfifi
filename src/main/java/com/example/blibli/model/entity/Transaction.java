@@ -27,6 +27,28 @@ public class Transaction {
 
     @Column(name="id_reservation", nullable=false)
     private String idReservation;
+    
+    @Column(name="id_guest", nullable=false)
+    private String idGuest;
+    
+    @Column(name="id_room", nullable=false)
+    private String idRoom;
+
+	public String getIdGuest() {
+		return idGuest;
+	}
+
+	public void setIdGuest(String idGuest) {
+		this.idGuest = idGuest;
+	}
+
+	public String getIdRoom() {
+		return idRoom;
+	}
+
+	public void setIdRoom(String idRoom) {
+		this.idRoom = idRoom;
+	}
 
 	public String getId() {
 		return id;

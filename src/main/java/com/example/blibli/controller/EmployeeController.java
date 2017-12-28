@@ -2,14 +2,10 @@ package com.example.blibli.controller;
 
 import com.example.blibli.model.request.EmployeeRequest;
 import com.example.blibli.model.response.EmployeeResponse;
-import com.example.blibli.model.response.base.BaseResponse;
 import com.example.blibli.model.response.base.BaseRestResponse;
 import com.example.blibli.model.response.base.RestListResponse;
 import com.example.blibli.model.response.base.RestSingleResponse;
 import com.example.blibli.service.api.EmployeeService;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 

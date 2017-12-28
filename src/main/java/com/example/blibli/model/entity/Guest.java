@@ -26,6 +26,12 @@ public class Guest {
 
     @Column(name="address", nullable=false)
     private String address;
+    
+    @Column(name="gender", nullable=false)
+    private String gender;
+
+    @Column(name="nationality", nullable=false)
+    private String nationality;
 
     public String getId() {
 		return id;
@@ -75,9 +81,5 @@ public class Guest {
 		this.nationality = nationality;
 	}
 
-	@Column(name="gender", nullable=false)
-    private String gender;
-
-    @Column(name="nationality", nullable=false)
-    private String nationality;
+	
 }

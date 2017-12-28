@@ -17,12 +17,18 @@ public class Room {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     private String id;
-    
-	@Column(name="id_class", nullable=false)
-    private String idClass;
 
     @Column(name="name", nullable=false)
     private String name;
+    
+    @Column(name="description", nullable=false)
+    private String description;
+    
+    @Column(name="price", nullable=false)
+    private Integer price;
+
+    @Column(name="availability", nullable=false)
+    private String availability;
 
     public String getId() {
 		return id;
@@ -30,14 +36,6 @@ public class Room {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getIdClass() {
-		return idClass;
-	}
-
-	public void setIdClass(String idClass) {
-		this.idClass = idClass;
 	}
 
 	public String getName() {
@@ -48,26 +46,28 @@ public class Room {
 		this.name = name;
 	}
 
-	public Integer getCapacity() {
-		return capacity;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setCapacity(Integer capacity) {
-		this.capacity = capacity;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getStatus() {
-		return status;
+	public Integer getPrice() {
+		return price;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 
-	@Column(name="capacity", nullable=false)
-    private Integer capacity;
+	public String getAvailability() {
+		return availability;
+	}
 
-    @Column(name="status", nullable=false)
-    private String status;
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
 
     }

@@ -20,12 +20,24 @@ public class Reservation {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     private String id;
-	
-	@Column(name="id_room", nullable=false)
-    private String idRoom;
+
+    @Column(name="check_in", columnDefinition = "DATE", nullable=false)
+    private Date checkIn;
+
+    @Column(name="check_out", columnDefinition = "DATE", nullable=false)
+    private Date checkOut;
+
+    @Column(name="num_guest", nullable=false)
+    private Integer numGuest;
+    
+    @Column(name="id_guest", nullable=false)
+    private String idGuest;
 
     @Column(name="id_employee", nullable=false)
     private String idEmployee;
+    
+    @Column(name="id_room", nullable=false)
+    private String idRoom;
 
     public String getId() {
 		return id;
@@ -82,17 +94,5 @@ public class Reservation {
 	public void setNumGuest(Integer numGuest) {
 		this.numGuest = numGuest;
 	}
-
-	@Column(name="id_guest", nullable=false)
-    private String idGuest;
-
-    @Column(name="check_in", nullable=false)
-    private Date checkIn;
-
-    @Column(name="check_out", nullable=false)
-    private Date checkOut;
-
-    @Column(name="num_guest", nullable=false)
-    private Integer numGuest;
     
 }

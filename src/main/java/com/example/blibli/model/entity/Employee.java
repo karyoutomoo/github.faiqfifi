@@ -19,6 +19,16 @@ public class Employee {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     private String id;
+	
+	@Column(name="name", nullable=false)
+    private String name;
+
+    @Column(name="hiredate", columnDefinition = "DATE", nullable=false)
+    private Date hireDate;
+
+    @Column(name="status", nullable=false)
+    private String status;
+
     
     public String getId() {
 		return id;
@@ -52,13 +62,5 @@ public class Employee {
 		this.status = status;
 	}
 
-	@Column(name="name", nullable=false)
-    private String name;
-
-    @Column(name="hiredate", nullable=false)
-    private Date hireDate;
-
-    @Column(name="status", nullable=false)
-    private String status;
 
     }

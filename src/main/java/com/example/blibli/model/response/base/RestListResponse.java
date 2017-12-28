@@ -3,8 +3,9 @@ package com.example.blibli.model.response.base;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestListResponse<T extends BaseResponse> extends BaseRestResponse{
-	private List<T> content = new ArrayList<>();
+public class RestListResponse<T extends BaseResponse> extends BaseRestResponse {
+
+    private List<T> content = new ArrayList<>();
     private PageMetaData pageMetaData;
 
     public RestListResponse() {
