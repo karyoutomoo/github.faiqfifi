@@ -8,8 +8,15 @@ public class EmployeeRequest {
 	private String id;
 	private String name;
 	private Date hireDate;
+	private String status;
 	private PageMetaData pageMetaData;
 	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public PageMetaData getPageMetaData() {
 		return pageMetaData;
 	}

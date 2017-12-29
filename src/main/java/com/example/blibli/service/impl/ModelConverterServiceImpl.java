@@ -1,5 +1,6 @@
 package com.example.blibli.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.blibli.model.entity.Employee;
@@ -12,14 +13,24 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 
 	@Override
 	public EmployeeResponse convertToEmployeeResponse(Employee employee) {
-		// TODO Auto-generated method stub
-		return null;
+		EmployeeResponse employeeResponse = new EmployeeResponse();
+		employeeResponse.setName(employee.getName());
+		employeeResponse.setHireDate(employee.getHireDate());
+		employeeResponse.setStatus(employee.getStatus());
+		return employeeResponse;
 	}
 
 	@Override
 	public List<EmployeeResponse> convertToEmployeeListResponse(List<Employee> employees) {
-		// TODO Auto-generated method stub
-		return null;
+		List<EmployeeResponse> employeeResponses = new ArrayList<>();
+		for (Employee employee : employees) {
+			EmployeeResponse employeeResponse = new EmployeeResponse();
+			employeeResponse.setName(employee.getName());
+			employeeResponse.setHireDate(employee.getHireDate());
+			employeeResponse.setStatus(employee.getStatus());
+			employeeResponses.add(employeeResponse);
+		}
+		return employeeResponses;
 	}
 
 	@Override
