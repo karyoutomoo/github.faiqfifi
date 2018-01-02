@@ -1,6 +1,5 @@
 package com.example.blibli.service.impl;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.blibli.model.entity.Employee;
 import com.example.blibli.model.entity.Reservation;
+import com.example.blibli.model.entity.Transaction;
 import com.example.blibli.model.response.EmployeeResponse;
 import com.example.blibli.model.response.ReservationResponse;
+import com.example.blibli.model.response.TransactionResponse;
 import com.example.blibli.service.api.ModelConverterService;
-import com.example.blibli.model.entity.Guest;
 
 @Service
 
@@ -70,5 +70,25 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 			reservationResponses.setCheck_out(reservation.getCheckOut());
 			reservationResponses.setNum_guest(reservation.getNumGuest());
 		return reservationResponses;
+	}
+
+	@Override
+	public List<TransactionResponse> convertToTransactionListResponse(List<Transaction> transactions) {
+		List<TransactionResponse> transactionResponses = new ArrayList<>();
+		for (Transaction transaction : transactions) {
+			TransactionResponse transactionResponse = new TransactionResponse();
+			transactionResponse.setCash(transaction.getCash());
+			transactionResponse.setPayment_method(transaction.getPaymentMethod());
+			transactionResponses.add(transactionResponse);
+		}
+		return transactionResponses;
+	}
+
+	@Override
+	public TransactionResponse convertToTransactionResponse(Transaction transaction) {
+		TransactionResponse transactionResponse = new TransactionResponse();
+		transactionResponse.setCash(transaction.getCash());
+		transactionResponse.setPayment_method(transaction.getPaymentMethod());
+		return transactionResponse;
 	}
 }

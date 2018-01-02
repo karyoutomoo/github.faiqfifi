@@ -21,28 +21,8 @@
 			<th>Kamar Gold 3</th>
 			<th>Kamar Platinum 1</th>
 			<th>Kamar Platinum 2</th>
-			<th>EDIT</th>
 		</thead>
-		<tbody>
-			<th:block th:each="room : ${roomList}">
-				<tr>
-					<td th:text="${room.standar1}" />
-					<td th:text="${room.standar2}" />
-					<td th:text="${room.standar3}" />
-					<td th:text="${room.standar4}" />
-					<td th:text="${room.standar5}" />
-					<td th:text="${room.double1}" />
-					<td th:text="${room.double2}" />
-					<td th:text="${room.double3}" />
-					<td th:text="${room.gold1}" />
-					<td th:text="${room.gold2}" />
-					<td th:text="${room.gold3}" />
-					<td th:text="${room.platinum1}" />
-					<td th:text="${room.platinum2}" />
-					<td><a th:href="@{/details/{id}(id=${room.id})}">EDIT</a></td>
-				</tr>
-			</th:block>
-		</tbody>
+			<button type="edit">EDIT</button>
 	</table>
 </body>
 </html>

@@ -13,8 +13,6 @@ import com.example.blibli.model.response.base.RestListResponse;
 import com.example.blibli.repository.ReservationRepository;
 import com.example.blibli.service.api.ModelConverterService;
 import com.example.blibli.service.api.ReservationService;
-import com.example.blibli.repository.GuestRepository;
-
 import java.math.BigDecimal;
 
 @Service
@@ -23,7 +21,6 @@ public class ReservationServiceImpl implements ReservationService{
 	private static final String RESERVATION_NOT_FOUND = "RESERVATION NOT FOUND";
 	
 	@Autowired private ReservationRepository reservationRepository;
-	@Autowired private GuestRepository guestRepository;
 	@Autowired private ModelConverterService modelConverterService;
 	
 	@Override
@@ -66,14 +63,7 @@ public class ReservationServiceImpl implements ReservationService{
 
 	@Override
 	public ReservationResponse updateReservation(ReservationRequest request) throws Exception {
-		/*Employee employee = this.employeeRepository.findById(request.getId());
-		if (employee == null)
-		{
-			throw new Exception(EmployeeServiceImpl.EMPLOYEE_NOT_FOUND);
-		}
-		else {
-			employee.setName(request.getName());
-			employee.setHireDate(request.getHireDate());*/
+		
 		Reservation reservation = this.reservationRepository.findById(request.getId());
 		if(reservation == null)
 		{

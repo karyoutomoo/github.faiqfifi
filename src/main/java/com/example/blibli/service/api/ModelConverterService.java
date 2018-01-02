@@ -20,4 +20,8 @@ public interface ModelConverterService {
 	List<ReservationResponse> convertToReservationListResponse(List<Reservation> reservations);
 	
 	ReservationResponse convertToReservationListResponse(Reservation reservations);
+	
+	List<TransactionResponse> convertToTransactionListResponse(List<Transaction> transactions);
+	
+	TransactionResponse convertToTransactionResponse(Transaction transaction);
 }
