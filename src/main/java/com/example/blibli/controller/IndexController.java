@@ -10,6 +10,6 @@ public class IndexController {
 
     @GetMapping(value = IndexController.BASE_PATH)
     public ModelAndView getBaseView() {
-        return new ModelAndView("index");
+        return new ModelAndView("welcome");
 	}
 }
