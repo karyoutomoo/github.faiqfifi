@@ -3,6 +3,8 @@ package com.example.blibli.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.example.blibli.model.entity.Reservation;
 import com.example.blibli.model.request.ReservationRequest;
 import com.example.blibli.model.response.ReservationResponse;
@@ -15,6 +17,7 @@ import com.example.blibli.repository.GuestRepository;
 
 import java.math.BigDecimal;
 
+@Service
 public class ReservationServiceImpl implements ReservationService{
 
 	private static final String RESERVATION_NOT_FOUND = "RESERVATION NOT FOUND";

@@ -10,11 +10,11 @@ import com.example.blibli.model.entity.Guest;
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, String> {
 	Reservation findById(String id);
-	List<Reservation> findBy(String id);
-	@Query(value= "SELECT COUNT(1) FROM reservations", nativeQuery = true) Long countTotalRecords();
 	
+	@Query(value= "SELECT COUNT(1) FROM reservation", nativeQuery = true) 
+	Long countTotalRecords();
 
-    @Query(value = "SELECT * FROM reservations LIMIT ?1 OFFSET ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM reservation LIMIT ?1 OFFSET ?2", nativeQuery = true)
     List<Reservation> findPageable(int limit, int offset);
-    List<Guest> findByName(String name);
+   
 }

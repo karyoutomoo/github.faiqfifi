@@ -1,6 +1,5 @@
 package com.example.blibli.model.entity;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;

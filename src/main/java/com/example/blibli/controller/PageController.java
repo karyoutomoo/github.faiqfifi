@@ -5,20 +5,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String index() {
 		return "login";
 	}
 	
-	@RequestMapping("/beranda")
+	@RequestMapping("/index")
 	public String index2() {
-		return "beranda";
+		return "index";
 	}
 	
-	@RequestMapping("/v_admin_tambah_admin")
+	@RequestMapping("/reserve")
 	public String index3() {
-		return "v_admin_tambah_admin";
-	}
+		return "reserve";
+	}*/
 	
 	@RequestMapping("/v_admin_lihat_rekap")
 	public String index4() {
