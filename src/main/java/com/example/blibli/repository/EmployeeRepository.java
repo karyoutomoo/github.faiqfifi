@@ -11,9 +11,9 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee, String>{
 	Employee findById(String id);
 	List<Employee> findByName(String name);
-	@Query(value= "SELECT COUNT(1) FROM employees", nativeQuery = true) Long countTotalRecords();
+	@Query(value= "SELECT COUNT(1) FROM employee", nativeQuery = true) Long countTotalRecords();
 	
 
-    @Query(value = "SELECT * FROM employees LIMIT ?1 OFFSET ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM employee LIMIT ?1 OFFSET ?2", nativeQuery = true)
     List<Employee> findPageable(int limit, int offset);
 }

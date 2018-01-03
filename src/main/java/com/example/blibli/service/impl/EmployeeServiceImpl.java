@@ -23,7 +23,6 @@ import java.util.List;
 
 	@Override
 	public List<EmployeeResponse> findAll() {
-		// TODO Auto-generated method stub
 		List<Employee> employees = this.employeeRepository.findAll();
 		return this.modelConverterService.convertToEmployeeListResponse(employees);
 	}
@@ -31,6 +30,7 @@ import java.util.List;
 	@Override 
 	public RestListResponse<EmployeeResponse> findPageable(EmployeeRequest request) {
         BigDecimal totalRecords = BigDecimal.valueOf(this.employeeRepository.countTotalRecords());
+        System.out.println(request.toString());
         int size = request.getPageMetaData().getSize();
         int page = request.getPageMetaData().getPage();
         int offset = page * size;

@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 	
 	@PostMapping(path = "/api/employee", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public RestSingleResponse<EmployeeResponse> saveStudent(@RequestBody EmployeeRequest request) {
+    public RestSingleResponse<EmployeeResponse> saveEmployee(@RequestBody EmployeeRequest request) {
         RestSingleResponse<EmployeeResponse> response;
         try {
             response = new RestSingleResponse<>(null, null, true,
@@ -47,7 +47,7 @@ import org.springframework.web.bind.annotation.RestController;
 
     @PutMapping(path = "/api/employee", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public RestSingleResponse<EmployeeResponse> updateStudent(@RequestBody EmployeeRequest request) {
+    public RestSingleResponse<EmployeeResponse> updateEmployee(@RequestBody EmployeeRequest request) {
         RestSingleResponse<EmployeeResponse> response;
         try {
             response = new RestSingleResponse<>(null, null, true,
