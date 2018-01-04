@@ -1,6 +1,7 @@
 package com.example.blibli.service.impl;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import com.example.blibli.service.api.TransactionService;
 
 @Service
 public class TransactionServiceImpl implements TransactionService{
-
+	private static final String TRANSACTION_NOT_FOUND = "The Transaction Is Not Found";
 	@Autowired private TransactionRepository transactionRepository;
 	@Autowired private ModelConverterService modelConverterService;
 	
@@ -45,5 +46,41 @@ public class TransactionServiceImpl implements TransactionService{
 	public TransactionResponse findbyId(String id) {
 		Transaction transaction = this.transactionRepository.findById(id);
 		return this.modelConverterService.convertToTransactionResponse(transaction);
+	}
+
+	@Override
+	public TransactionResponse saveTransaction(TransactionRequest request) throws Exception {
+		Transaction transaction = new Transaction();
+		transaction.setId(request.getId());
+		transaction.setIdReservation(request.getId_reservation());
+		transaction.setIdGuest(request.getId_guest());
+		transaction.setCash(request.getCash());
+		transaction.setPaymentMethod(request.getPayment_method());
+		return this.modelConverterService.convertToTransactionResponse(this.transactionRepository.save(transaction));
+	}
+
+	@Override
+	public TransactionResponse updateTransaction(TransactionRequest request) throws Exception {
+		Transaction transaction = this.transactionRepository.findById(request.getId());
+		if (transaction == null)
+		{
+			throw new Exception(TransactionServiceImpl.TRANSACTION_NOT_FOUND);
+		}
+		else {
+			
+			return this.modelConverterService.convertToTransactionResponse(this.transactionRepository.save(transaction));
+		}
+	}
+
+	@Override
+	public void deleteTransaction(String id) throws Exception {
+		Transaction transaction = this.transactionRepository.findById(id);
+		if (transaction == null)
+		{
+			throw new Exception(TransactionServiceImpl.TRANSACTION_NOT_FOUND);
+		}
+		else {
+			this.transactionRepository.delete(transaction);
+		}
 	}
 }

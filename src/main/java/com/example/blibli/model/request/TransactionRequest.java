@@ -9,10 +9,20 @@ public class TransactionRequest {
 	private String id_reservation;
 	private String id_room;
 	private String name;
+	private String id_guest;
 	private PageMetaData pageMetaData;
 	public String getId() {
 		return id;
 	}
+	
+	public String getId_guest() {
+		return id_guest;
+	}
+
+	public void setId_guest(String id_guest) {
+		this.id_guest = id_guest;
+	}
+
 	public void setId(String id) {
 		this.id = id;
 	}

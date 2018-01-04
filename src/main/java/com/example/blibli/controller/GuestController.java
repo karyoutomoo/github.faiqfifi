@@ -28,7 +28,7 @@ import com.example.blibli.service.api.GuestService;
         } catch (Exception e) {
             response = new RestListResponse<>(null, e.getMessage(), false);
         }
-        return response;
+        return response;//clear
     }
 	
 	@PostMapping(path = "/api/guest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -41,7 +41,7 @@ import com.example.blibli.service.api.GuestService;
         } catch (Exception e) {
             response = new RestSingleResponse<>(null, e.getMessage(), false);
         }
-        return response;
+        return response;//clear
     }
 	@PutMapping(path = "/api/guest", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -53,7 +53,7 @@ import com.example.blibli.service.api.GuestService;
         } catch (Exception e) {
             response = new RestSingleResponse<>(null, e.getMessage(), false);
         }
-        return response;
+        return response;//
     }
 	@DeleteMapping(path = "/api/guest/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody public BaseRestResponse deleteGuest(@PathVariable("id") String id) {

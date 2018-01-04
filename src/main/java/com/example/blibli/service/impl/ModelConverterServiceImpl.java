@@ -8,10 +8,12 @@ import org.springframework.stereotype.Service;
 import com.example.blibli.model.entity.Employee;
 import com.example.blibli.model.entity.Guest;
 import com.example.blibli.model.entity.Reservation;
+import com.example.blibli.model.entity.Room;
 import com.example.blibli.model.entity.Transaction;
 import com.example.blibli.model.response.EmployeeResponse;
 import com.example.blibli.model.response.GuestResponse;
 import com.example.blibli.model.response.ReservationResponse;
+import com.example.blibli.model.response.RoomResponse;
 import com.example.blibli.model.response.TransactionResponse;
 import com.example.blibli.service.api.ModelConverterService;
 
@@ -55,6 +57,7 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 		List<ReservationResponse> reservationResponses = new ArrayList<>();
 		for (Reservation reservation : reservations) {
 			ReservationResponse reservationResponse = new ReservationResponse();
+			//reservationResponse.setName(reservation.getName);
 			reservationResponse.setCheck_in(reservation.getCheckIn());
 			reservationResponse.setCheck_out(reservation.getCheckOut());
 			reservationResponse.setNum_guest(reservation.getNumGuest());
@@ -79,8 +82,11 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 		List<TransactionResponse> transactionResponses = new ArrayList<>();
 		for (Transaction transaction : transactions) {
 			TransactionResponse transactionResponse = new TransactionResponse();
-			transactionResponse.setCash(transaction.getCash());
-			transactionResponse.setPayment_method(transaction.getPaymentMethod());
+			transaction.setId(transaction.getId());
+			transaction.setIdReservation(transaction.getIdReservation());
+			transaction.setIdGuest(transaction.getIdGuest());
+			transaction.setCash(transaction.getCash());
+			transaction.setPaymentMethod(transaction.getPaymentMethod());
 			transactionResponses.add(transactionResponse);
 		}
 		return transactionResponses;
@@ -89,8 +95,11 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 	@Override
 	public TransactionResponse convertToTransactionResponse(Transaction transaction) {
 		TransactionResponse transactionResponse = new TransactionResponse();
-		transactionResponse.setCash(transaction.getCash());
-		transactionResponse.setPayment_method(transaction.getPaymentMethod());
+		transaction.setId(transaction.getId());
+		transaction.setIdReservation(transaction.getIdReservation());
+		transaction.setIdGuest(transaction.getIdGuest());
+		transaction.setCash(transaction.getCash());
+		transaction.setPaymentMethod(transaction.getPaymentMethod());
 		return transactionResponse;
 	}
 
@@ -118,5 +127,29 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 			guestResponses.add(guestResponse);
 		}
 		return guestResponses;
+	}
+
+	@Override
+	public RoomResponse convertToRoomResponse(Room room) {
+		RoomResponse roomResponse = new RoomResponse();
+		roomResponse.setName(room.getName());
+		roomResponse.setDescription(room.getDescription());
+		roomResponse.setPrice(room.getPrice());
+		roomResponse.setAvailability(room.getAvailability());
+		return roomResponse;
+	}
+
+	@Override
+	public List<RoomResponse> convertToRoomListResponse(List<Room> rooms) {
+		List<RoomResponse> roomResponses = new ArrayList<>();
+		for (Room room : rooms) {
+			RoomResponse roomResponse = new RoomResponse();
+			roomResponse.setName(room.getName());
+			roomResponse.setDescription(room.getDescription());
+			roomResponse.setPrice(room.getPrice());
+			roomResponse.setAvailability(room.getAvailability());
+			roomResponses.add(roomResponse);
+		}
+		return roomResponses;
 	}
 }

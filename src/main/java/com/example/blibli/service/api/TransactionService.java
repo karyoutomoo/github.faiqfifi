@@ -10,4 +10,10 @@ public interface TransactionService {
 	List<TransactionResponse> findAll();
 	RestListResponse<TransactionResponse> findPageable(TransactionRequest request);
 	TransactionResponse findbyId(String id);
+	
+	TransactionResponse saveTransaction(TransactionRequest request) throws Exception;
+	
+	TransactionResponse updateTransaction(TransactionRequest request) throws Exception;
+	
+	void deleteTransaction(String id) throws Exception;
 }

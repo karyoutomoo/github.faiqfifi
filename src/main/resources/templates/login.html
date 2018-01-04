@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"> 
+<html> 
 <head>
 	<title>Login</title>
 </head>
+
 <body>
 	<h1 style="text-align:center">Login</h1>
-	<form align=center>
-			<label for="username">Username : </label>     
-			<input id="username" type="text" name="username" placeholder="Username" ></br>  
-			<label for="password">Password : </label>     
-			<input id="password" type="password" name="password" placeholder="Password"></br> 
-			<button type="submit">SUBMIT</button> 
-	</form> 
+	
+	<script src="validation.js"></script>
+	
+	<form name="myForm" action="index.html" onsubmit="return validateForm()" method="post">
+		Name: <input type="text" name="fname">
+		Password: <input type="password" name="fpassword">
+		<input type="submit" value="Submit">
+	</form>
+	
 </body>
 </html>

@@ -20,7 +20,7 @@ public class Transaction {
     private String id;
     
 	@Column(name="cash", nullable=false)
-    private Integer cash;
+    private String cash;
 
     @Column(name="payment_method", nullable=false)
     private String paymentMethod;
@@ -58,11 +58,11 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public Integer getCash() {
+	public String getCash() {
 		return cash;
 	}
 
-	public void setCash(Integer cash) {
+	public void setCash(String cash) {
 		this.cash = cash;
 	}
 
