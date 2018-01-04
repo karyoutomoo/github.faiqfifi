@@ -1,7 +1,6 @@
 package com.example.blibli.service.impl;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,10 +51,11 @@ public class TransactionServiceImpl implements TransactionService{
 	public TransactionResponse saveTransaction(TransactionRequest request) throws Exception {
 		Transaction transaction = new Transaction();
 		transaction.setId(request.getId());
+		transaction.setPaymentMethod(request.getPayment_method());
 		transaction.setIdReservation(request.getId_reservation());
 		transaction.setIdGuest(request.getId_guest());
+		transaction.setIdRoom(request.getId_room());
 		transaction.setCash(request.getCash());
-		transaction.setPaymentMethod(request.getPayment_method());
 		return this.modelConverterService.convertToTransactionResponse(this.transactionRepository.save(transaction));
 	}
 
@@ -67,8 +67,14 @@ public class TransactionServiceImpl implements TransactionService{
 			throw new Exception(TransactionServiceImpl.TRANSACTION_NOT_FOUND);
 		}
 		else {
-			
+			transaction.setId(request.getId());
+			transaction.setPaymentMethod(request.getPayment_method());
+			transaction.setIdReservation(request.getId_reservation());
+			transaction.setIdGuest(request.getId_guest());
+			transaction.setIdRoom(request.getId_room());
+			transaction.setCash(request.getCash());
 			return this.modelConverterService.convertToTransactionResponse(this.transactionRepository.save(transaction));
+			//this changes things in db
 		}
 	}
 

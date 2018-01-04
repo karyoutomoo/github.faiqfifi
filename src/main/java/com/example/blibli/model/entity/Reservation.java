@@ -37,6 +37,9 @@ public class Reservation {
     
     @Column(name="id_room", nullable=false)
     private String idRoom;
+    
+    @Column(name="is_ok", nullable=false)
+    private String isOk;
 
     public String getId() {
 		return id;
@@ -92,6 +95,14 @@ public class Reservation {
 
 	public void setNumGuest(Integer numGuest) {
 		this.numGuest = numGuest;
+	}
+
+	public String getIsOk() {
+		return isOk;
+	}
+
+	public void setIsOk(String isOk) {
+		this.isOk = isOk;
 	}
     
 }

@@ -44,21 +44,21 @@ public class ReservationServiceImpl implements ReservationService{
 
 	@Override
 	public ReservationResponse findbyId(String id) {
-		Reservation reservations = this.reservationRepository.findById(id);
-		return this.modelConverterService.convertToReservationListResponse(reservations);
+		Reservation reservation = this.reservationRepository.findById(id);
+		return this.modelConverterService.convertToReservationResponse(reservation);
 	}
 
 	@Override
 	public ReservationResponse saveReservation(ReservationRequest request) throws Exception {
-		/*Employee employee = new Employee();
-		employee.setName(request.getName());
-		employee.setHireDate(request.getHireDate());
-		return this.modelConverterService.convertToEmployeeResponse(this.employeeRepository.save(employee));*/
 		Reservation reservation = new Reservation();
 		reservation.setCheckIn(request.getCheck_in());
 		reservation.setCheckOut(request.getCheck_out());
 		reservation.setNumGuest(request.getNum_guest());
-		return this.modelConverterService.convertToReservationListResponse(reservation);
+		reservation.setIdGuest(request.getId_guest());
+		reservation.setIdEmployee(request.getId_employee());
+		reservation.setIdRoom(request.getId_room());
+		reservation.setIsOk(request.getIs_ok());
+		return this.modelConverterService.convertToReservationResponse(this.reservationRepository.save(reservation));
 	}
 
 	@Override
@@ -73,6 +73,10 @@ public class ReservationServiceImpl implements ReservationService{
 			reservation.setCheckIn(request.getCheck_in());
 			reservation.setCheckOut(request.getCheck_out());
 			reservation.setNumGuest(request.getNum_guest());
+			reservation.setIdGuest(request.getId_guest());
+			reservation.setIdEmployee(request.getId_employee());
+			reservation.setIdRoom(request.getId_room());
+			reservation.setIsOk(request.getIs_ok());
 		}
 			return this.modelConverterService.convertToReservationResponse(this.reservationRepository.save(reservation));
 	}
@@ -85,11 +89,5 @@ public class ReservationServiceImpl implements ReservationService{
 			throw new Exception(ReservationServiceImpl.RESERVATION_NOT_FOUND);
 		else this.reservationRepository.delete(reservation);
 		
-	}
-
-	@Override
-	public List<ReservationResponse> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

@@ -19,8 +19,6 @@ public class Transaction {
     @GenericGenerator(name="uuid2", strategy = "uuid2")
     private String id;
     
-	@Column(name="cash", nullable=false)
-    private String cash;
 
     @Column(name="payment_method", nullable=false)
     private String paymentMethod;
@@ -33,6 +31,9 @@ public class Transaction {
     
     @Column(name="id_room", nullable=false)
     private String idRoom;
+    
+    @Column(name="cash", nullable=false)
+    private Integer cash;
 
 	public String getIdGuest() {
 		return idGuest;
@@ -58,11 +59,11 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public String getCash() {
+	public Integer getCash() {
 		return cash;
 	}
 
-	public void setCash(String cash) {
+	public void setCash(Integer cash) {
 		this.cash = cash;
 	}
 

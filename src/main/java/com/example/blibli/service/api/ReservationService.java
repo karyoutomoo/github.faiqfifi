@@ -17,5 +17,5 @@ public interface ReservationService {
 	ReservationResponse updateReservation(ReservationRequest request) throws Exception;
 	
 	void deleteReservation(String id) throws Exception;
-	List<ReservationResponse> findByName(String name);
+	
 }

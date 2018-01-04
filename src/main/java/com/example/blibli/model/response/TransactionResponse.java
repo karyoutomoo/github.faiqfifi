@@ -4,11 +4,11 @@ import com.example.blibli.model.response.base.BaseResponse;
 
 public class TransactionResponse extends BaseResponse{
 	private String id;
-	private Integer cash;
 	private String payment_method;
 	private String id_reservation;
+	private String id_guest;
 	private String id_room;
-	private String name;
+	private Integer cash;
 	public String getId() {
 		return id;
 	}
@@ -33,17 +33,18 @@ public class TransactionResponse extends BaseResponse{
 	public void setId_reservation(String id_reservation) {
 		this.id_reservation = id_reservation;
 	}
+	
+	public String getId_guest() {
+		return id_guest;
+	}
+	public void setId_guest(String id_guest) {
+		this.id_guest = id_guest;
+	}
 	public String getId_room() {
 		return id_room;
 	}
 	public void setId_room(String id_room) {
 		this.id_room = id_room;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 }

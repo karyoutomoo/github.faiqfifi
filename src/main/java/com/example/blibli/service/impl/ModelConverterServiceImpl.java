@@ -49,6 +49,10 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 		reservationResponse.setCheck_in(reservation.getCheckIn());
 		reservationResponse.setCheck_out(reservation.getCheckOut());
 		reservationResponse.setNum_guest(reservation.getNumGuest());
+		reservationResponse.setId_guest(reservation.getIdGuest());
+		reservationResponse.setId_employee(reservation.getIdEmployee());
+		reservationResponse.setId_room(reservation.getIdRoom());
+		reservationResponse.setIs_ok(reservation.getIsOk());
 		return reservationResponse;
 	}
 
@@ -57,23 +61,15 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 		List<ReservationResponse> reservationResponses = new ArrayList<>();
 		for (Reservation reservation : reservations) {
 			ReservationResponse reservationResponse = new ReservationResponse();
-			//reservationResponse.setName(reservation.getName);
 			reservationResponse.setCheck_in(reservation.getCheckIn());
 			reservationResponse.setCheck_out(reservation.getCheckOut());
 			reservationResponse.setNum_guest(reservation.getNumGuest());
+			reservationResponse.setId_guest(reservation.getIdGuest());
+			reservationResponse.setId_employee(reservation.getIdEmployee());
+			reservationResponse.setId_room(reservation.getIdRoom());
+			reservationResponse.setIs_ok(reservation.getIsOk());
 			reservationResponses.add(reservationResponse);
 		}
-		return reservationResponses;
-	}
-
-	@Override
-	public ReservationResponse convertToReservationListResponse(Reservation reservation) {
-		//List<ReservationResponse> reservationResponses = new ArrayList<>();
-		ReservationResponse reservationResponses = new ReservationResponse();
-		
-			reservationResponses.setCheck_in(reservation.getCheckIn());
-			reservationResponses.setCheck_out(reservation.getCheckOut());
-			reservationResponses.setNum_guest(reservation.getNumGuest());
 		return reservationResponses;
 	}
 
@@ -82,11 +78,12 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 		List<TransactionResponse> transactionResponses = new ArrayList<>();
 		for (Transaction transaction : transactions) {
 			TransactionResponse transactionResponse = new TransactionResponse();
-			transaction.setId(transaction.getId());
-			transaction.setIdReservation(transaction.getIdReservation());
-			transaction.setIdGuest(transaction.getIdGuest());
-			transaction.setCash(transaction.getCash());
-			transaction.setPaymentMethod(transaction.getPaymentMethod());
+			transactionResponse.setId(transaction.getId());
+			transactionResponse.setPayment_method(transaction.getPaymentMethod());
+			transactionResponse.setId_reservation(transaction.getIdReservation());
+			transactionResponse.setId_guest(transaction.getIdGuest());;
+			transactionResponse.setId_room(transaction.getIdRoom());
+			transactionResponse.setCash(transaction.getCash());
 			transactionResponses.add(transactionResponse);
 		}
 		return transactionResponses;
@@ -95,11 +92,12 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 	@Override
 	public TransactionResponse convertToTransactionResponse(Transaction transaction) {
 		TransactionResponse transactionResponse = new TransactionResponse();
-		transaction.setId(transaction.getId());
-		transaction.setIdReservation(transaction.getIdReservation());
-		transaction.setIdGuest(transaction.getIdGuest());
-		transaction.setCash(transaction.getCash());
-		transaction.setPaymentMethod(transaction.getPaymentMethod());
+		transactionResponse.setId(transaction.getId());
+		transactionResponse.setPayment_method(transaction.getPaymentMethod());
+		transactionResponse.setId_reservation(transaction.getIdReservation());
+		transactionResponse.setId_guest(transaction.getIdGuest());
+		transactionResponse.setId_room(transaction.getIdRoom());
+		transactionResponse.setCash(transaction.getCash());
 		return transactionResponse;
 	}
 

@@ -1,7 +1,6 @@
 package com.example.blibli.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -18,4 +17,5 @@ Transaction findById(String id);
 
     @Query(value = "SELECT * FROM transaction LIMIT ?1 OFFSET ?2", nativeQuery = true)
     List<Transaction> findPageable(int limit, int offset);
+    
 }

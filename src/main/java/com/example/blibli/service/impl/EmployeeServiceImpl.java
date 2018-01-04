@@ -49,11 +49,10 @@ import java.util.List;
 
 	@Override
 	public EmployeeResponse saveEmployee(EmployeeRequest request) throws Exception {
-		// TODO Auto-generated method stub
 		Employee employee = new Employee();
 		employee.setName(request.getName());
 		employee.setHireDate(request.getHireDate());
-		
+		employee.setStatus(request.getStatus());
 		return this.modelConverterService.convertToEmployeeResponse(this.employeeRepository.save(employee));
 	}
 
