@@ -3,12 +3,20 @@ package com.example.blibli.model.request;
 import com.example.blibli.model.response.base.PageMetaData;
 
 public class GuestRequest {
+	private String id;
 	private String name;
 	private Integer identity_number;
 	private String address;
 	private String gender;
 	private String nationality;
 	private PageMetaData pageMetaData;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getName() {
 		return name;
 	}

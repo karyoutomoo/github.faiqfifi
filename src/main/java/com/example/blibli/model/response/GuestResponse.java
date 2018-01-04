@@ -1,7 +1,6 @@
 package com.example.blibli.model.response;
 
 import com.example.blibli.model.response.base.BaseResponse;
-import com.example.blibli.model.response.base.PageMetaData;
 
 public class GuestResponse extends BaseResponse {
 	private String name;
@@ -9,7 +8,14 @@ public class GuestResponse extends BaseResponse {
 	private String address;
 	private String gender;
 	private String nationality;
-	private PageMetaData pageMetaData;
+	public GuestResponse() {}
+	public GuestResponse(String name, Integer identity_number, String address, String gender, String nationality) {
+		this.name=name;
+		this.identity_number=identity_number;
+		this.address=address;
+		this.gender=gender;
+		this.nationality=nationality;
+	}
 	public String getName() {
 		return name;
 	}
@@ -39,12 +45,6 @@ public class GuestResponse extends BaseResponse {
 	}
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
-	}
-	public PageMetaData getPageMetaData() {
-		return pageMetaData;
-	}
-	public void setPageMetaData(PageMetaData pageMetaData) {
-		this.pageMetaData = pageMetaData;
 	}
 	
 	

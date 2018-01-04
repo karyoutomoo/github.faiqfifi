@@ -1,9 +1,11 @@
 package com.example.blibli.service.api;
 
 import com.example.blibli.model.entity.Employee;
+import com.example.blibli.model.entity.Guest;
 import com.example.blibli.model.entity.Reservation;
 import com.example.blibli.model.entity.Transaction;
 import com.example.blibli.model.response.EmployeeResponse;
+import com.example.blibli.model.response.GuestResponse;
 import com.example.blibli.model.response.ReservationResponse;
 import com.example.blibli.model.response.TransactionResponse;
 
@@ -24,4 +26,8 @@ public interface ModelConverterService {
 	List<TransactionResponse> convertToTransactionListResponse(List<Transaction> transactions);
 	
 	TransactionResponse convertToTransactionResponse(Transaction transaction);
+	
+	GuestResponse convertToGuestResponse(Guest guest);
+
+    List<GuestResponse> convertToGuestListResponse(List<Guest> guests);
 }

@@ -9,7 +9,8 @@ import com.example.blibli.model.response.base.RestListResponse;
 public interface GuestService {
 	List<GuestResponse> findAll();
 	RestListResponse<GuestResponse> findPageable(GuestRequest request);
-	List<GuestResponse> findByName(String name);
+	
+	GuestResponse findByName(String name);
 	
 	GuestResponse saveGuest(GuestRequest request) throws Exception;
 	

@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.blibli.model.entity.Employee;
+import com.example.blibli.model.entity.Guest;
 import com.example.blibli.model.entity.Reservation;
 import com.example.blibli.model.entity.Transaction;
 import com.example.blibli.model.response.EmployeeResponse;
+import com.example.blibli.model.response.GuestResponse;
 import com.example.blibli.model.response.ReservationResponse;
 import com.example.blibli.model.response.TransactionResponse;
 import com.example.blibli.service.api.ModelConverterService;
@@ -90,5 +92,31 @@ public class ModelConverterServiceImpl implements ModelConverterService {
 		transactionResponse.setCash(transaction.getCash());
 		transactionResponse.setPayment_method(transaction.getPaymentMethod());
 		return transactionResponse;
+	}
+
+	@Override
+	public GuestResponse convertToGuestResponse(Guest guest) {
+		GuestResponse guestResponse = new GuestResponse();
+		guestResponse.setName(guest.getName());
+		guestResponse.setIdentity_number(guest.getIdentity_number());
+		guestResponse.setAddress(guest.getAddress());
+		guestResponse.setGender(guest.getGender());
+		guestResponse.setNationality(guest.getNationality());
+		return guestResponse;
+	}
+
+	@Override
+	public List<GuestResponse> convertToGuestListResponse(List<Guest> guests) {
+		List<GuestResponse> guestResponses = new ArrayList<>();
+		for (Guest guest : guests) {
+			GuestResponse guestResponse = new GuestResponse();
+			guestResponse.setName(guest.getName());
+			guestResponse.setIdentity_number(guest.getIdentity_number());
+			guestResponse.setAddress(guest.getAddress());
+			guestResponse.setGender(guest.getGender());
+			guestResponse.setNationality(guest.getNationality());
+			guestResponses.add(guestResponse);
+		}
+		return guestResponses;
 	}
 }

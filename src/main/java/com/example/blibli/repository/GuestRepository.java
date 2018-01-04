@@ -1,6 +1,5 @@
 package com.example.blibli.repository;
 
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,7 +11,8 @@ import com.example.blibli.model.entity.Guest;
 @Repository
 public interface GuestRepository extends JpaRepository<Guest, String> {
 	Guest findById(String id);
-	List<Guest> findByName(String name);
+	Guest findByName(String name);
+	//List<Guest> findByName(String name);
 	@Query(value= "SELECT COUNT(1) FROM guest", nativeQuery = true) Long countTotalRecords();
 	
 

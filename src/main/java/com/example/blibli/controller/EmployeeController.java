@@ -44,7 +44,6 @@ import org.springframework.web.bind.annotation.RestController;
         }
         return response;
     }
-
     @PutMapping(path = "/api/employee", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public RestSingleResponse<EmployeeResponse> updateEmployee(@RequestBody EmployeeRequest request) {
