@@ -5,7 +5,7 @@ function validateForm() {
 	        return false;
 	    }
 	    var y = document.forms["myForm"]["fpassword"].value;
-	    if (x != "kasir") {
+	    if (y != "kasir") {
 	        alert("Password Salah!");
 	        return false;
 	    }
