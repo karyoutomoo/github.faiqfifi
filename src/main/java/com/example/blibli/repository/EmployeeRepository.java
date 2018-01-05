@@ -13,8 +13,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, String>{
 	
 	List<Employee> findByName(String name);
 	@Query(value= "SELECT COUNT(1) FROM employee", nativeQuery = true) Long countTotalRecords();
-	
-
-    @Query(value = "SELECT * FROM employee LIMIT ?1 OFFSET ?2", nativeQuery = true)
+	/**
+	 * kode diatas untuk menghitung total row
+	 * kode dibawah untuk menerima limit dan offset paging
+	**/    
+	@Query(value = "SELECT * FROM employee LIMIT ?1 OFFSET ?2", nativeQuery = true)
     List<Employee> findPageable(int limit, int offset);
 }

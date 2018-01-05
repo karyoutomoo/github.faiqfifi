@@ -30,7 +30,7 @@ import com.example.blibli.service.api.RoomService;
 	@Override
 	public RestListResponse<RoomResponse> findPageable(RoomRequest request) {
 		BigDecimal totalRecords = BigDecimal.valueOf(this.roomRepository.countTotalRecords());
-        System.out.println(request.toString());
+        //System.out.println(request.toString());
         int size = request.getPageMetaData().getSize();
         int page = request.getPageMetaData().getPage();
         int offset = page * size;

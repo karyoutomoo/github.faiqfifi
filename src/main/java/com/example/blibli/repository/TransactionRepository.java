@@ -14,7 +14,10 @@ Transaction findById(String id);
 	
 	@Query(value= "SELECT COUNT(1) FROM transaction", nativeQuery = true) 
 	Long countTotalRecords();
-
+	/**
+	 * kode diatas untuk menghitung total row
+	 * kode dibawah untuk menerima limit dan offset paging
+	**/
     @Query(value = "SELECT * FROM transaction LIMIT ?1 OFFSET ?2", nativeQuery = true)
     List<Transaction> findPageable(int limit, int offset);
     

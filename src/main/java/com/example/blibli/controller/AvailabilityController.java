@@ -17,7 +17,7 @@ import com.example.blibli.service.api.RoomService;
 public class AvailabilityController {
 	@Autowired private RoomService roomService;
 	
-	@PostMapping(path = "/api/rooms", produces = MediaType.APPLICATION_JSON_VALUE) @ResponseBody
+	@PostMapping(path = "/api/rooms")
     public RestListResponse<RoomResponse> getRooms(@RequestBody RoomRequest request) {
         RestListResponse<RoomResponse> response;
         try {
